@@ -1,0 +1,111 @@
+* {
+	font-size: 14px;
+	min-height: 0;
+	font-family: Caskaydia Cove Nerd Font, monospace;
+	font-weight: Bold;
+	border: 2px;
+}
+
+window#waybar {
+    background: rgba(21, 18, 27, 0);
+	color: #fdf6e3;
+}
+
+#custom-right-arrow-dark,
+#custom-left-arrow-dark {
+	color: #000000;
+	background: #24201d;
+
+}
+
+#custom-right-arrow-dark2,
+#custom-left-arrow-dark2 {
+	color: #000000;
+
+}
+
+#custom-right-arrow-dark2,
+#custom-left-arrow-dark2 {
+	color: #000000;
+
+}
+
+#custom-right-arrow-light,
+#custom-left-arrow-light {
+	background: #000000;
+	color: #24201d;
+}
+#custom-updates {
+	background: #000000;
+	color: #e7ddd3;
+}
+
+#workspaces,
+#clock.1 {
+	color: #e7ddd3;
+	background: #000000;
+}
+#clock.2 {
+	color: #6485a6;
+	background: #000000;
+}
+#clock.3 {
+	color: #e7ddd3;
+	background: #000000;
+}
+#pulseaudio,
+#memory,
+#cpu,
+#battery,
+#disk,
+#tray {
+	background: #000000;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+#workspaces button {
+	padding: 0 2px;
+	color: #fdf6e3;
+}
+#workspaces button.active {
+	color: #a62b2b;
+}
+#workspaces button:hover {
+	box-shadow: inherit;
+	text-shadow: inherit;
+}
+#workspaces button:hover {
+	background: #000000;
+	padding: 0 3px;
+}
+#pulseaudio {
+	color: #413a2c;
+}
+#memory {
+	color: #2aa198;
+}
+#custom-ytube {
+	background: #000000;
+	color: #a62b2b;
+	/*color: #eec494;*/
+}
+
+#battery {
+	color: #b8b8b8;
+}
+#cpu {
+	color: #625c55;
+}
+#disk {
+	color: #b58900;
+}
+
+#clock,
+#pulseaudio,
+#memory,
+#cpu,
+#battery,
+#disk {
+	padding: 0 10px;
+}

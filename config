@@ -75,9 +75,9 @@
 	"custom/updates": {
         "format": "  {} ",
         "interval": 7200,                     // every two hours
-        "exec": "i=$(checkupdates); echo \"$i\" |wc -l; echo \"$i\" |column -t |tr '\n' '\r'",       // # of updates and tooltip details
+        "exec": "i=$(sudo xbps-install -SuMn | awk '{print $1}'); echo \"$i\" |wc -l; echo \"$i\" |column -t |tr '\n' '\r'",       // # of updates and tooltip details
         "exec-if": "exit 0",                  // always run; consider advanced run conditions
-        "on-click": "kitty -e sudo pacman -Syu", // update system
+        "on-click": "alacritty -e sudo xbps-install -SMu", // update system
         "signal": 8
     },
 
@@ -91,7 +91,7 @@
 	"hyprland/workspaces": {
 		"disable-scroll": true,
 		"persistent-workspaces": {
-			"*": 10,
+			"*": 0,
 		},
 		"active-only": false,
 		"format": "{name}: {icon}",
@@ -153,11 +153,11 @@
 		},
 		"format": "{icon} {capacity}%",
 		"format-icons": [
-			"",
-			"",
-			"",
-			"",
-			""
+			" ",
+			" ",
+			" ",
+			" ",
+			" "
 		]
 	},
 	"disk": {
