@@ -4,5 +4,7 @@
 ###### I am having some minor issues with the tray randomly not populating on launch of waybar but other than that
 it works fine
 
-# Waybar screenshot
+# Waybar screenshots
 ![](waybar.png)
+![](waybar2.png)
+
