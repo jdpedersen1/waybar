@@ -1,0 +1,241 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: Caskaydia Cove Nerd Font, monospace;
+    font-size: 12px;
+    min-height: 0px;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+#workspaces {
+    margin-right: 8px;
+    padding-left: 16px;
+    border-radius: 10px 20px 5px 10px;
+    transition: none;
+    background: #181818;
+    border: solid 1px;
+    border-color: #474036;
+}
+
+#workspaces button {
+    transition: none;
+    color: #ffffff;
+    background: transparent;
+    padding: 5px;
+    font-size: 18px;
+}
+
+#workspaces button.persistent {
+    color: #7c818c;
+    font-size: 12px;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect
+#workspaces button:hover {
+    transition: none;
+    box-shadow: inherit;
+    text-shadow: inherit;
+    border-radius: inherit;
+    color: #383c4a;
+    background: #7c818c;
+}*/
+
+#workspaces button.active {
+    color: #487caf;
+}
+
+#language {
+    padding-left: 16px;
+    padding-right: 8px;
+    border-radius: 10px 0px 0px 10px;
+    transition: none;
+    color: #ffffff;
+    background: #383c4a;
+}
+
+#keyboard-state {
+    margin-right: 8px;
+    padding-right: 16px;
+    border-radius: 0px 10px 10px 0px;
+    transition: none;
+    color: #ffffff;
+    background: #383c4a;
+}
+
+#custom-updates {
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 5px 20px 5px 20px;
+    border: solid 1px;
+    border-color: #474036;
+    transition: none;
+    color: #ffffff;
+    background: #181818;
+}
+
+#custom-ytube { 
+    margin-right: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 20px 5px 20px 5px;
+    border: solid 1px;
+    border-color: #474036;
+    color: #487caf;
+    background: #181818;
+}
+
+#custom-mail {
+    margin-right: 8px;
+    padding-right: 16px;
+    border-radius: 0px 10px 10px 0px;
+    transition: none;
+    color: #ffffff;
+    background: #383c4a;
+}
+
+#mode {
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 10px;
+    transition: none;
+    color: #ffffff;
+    background: #383c4a;
+}
+
+#clock {
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 10px 10px 10px 10px;
+    border: solid 2px;
+    border-color: #000000;
+    transition: none;
+    color: #000000;
+    background: #474036;
+}
+
+#custom-weather {
+    padding-right: 16px;
+    border-radius: 0px 10px 10px 0px;
+    transition: none;
+    color: #ffffff;
+    background: #383c4a;
+}
+
+#pulseaudio {
+    margin-right: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 20px 5px 20px 5px;
+    border: solid 1px;
+    border-color: #474036;
+    transition: none;
+    color: #ffffff;
+    background: #181818;
+}
+
+#pulseaudio.muted {
+    background-color: #90b1b1;
+    color: #2a5c45;
+}
+
+#custom-mem {
+    margin-right: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 10px;
+    transition: none;
+    color: #ffffff;
+    background: #383c4a;
+}
+
+#temperature {
+    margin-right: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 10px;
+    transition: none;
+    color: #ffffff;
+    background: #383c4a;
+}
+
+#temperature.critical {
+    background-color: #eb4d4b;
+}
+
+#backlight {
+    margin-right: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 20px 5px 20px 5px;
+    border: solid 1px;
+    border-color: #474036;
+    transition: none;
+    color: #ffffff;
+    background: #181818;
+}
+
+#battery {
+    margin-right: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 20px 5px 20px 5px;
+    border: solid 1px;
+    border-color: #474036;
+    transition: none;
+    color: #ffffff;
+    background: #181818;
+}
+
+#battery.charging {
+    color: #ffffff;
+    /*background-color: #26A65B;*/
+    background-color: #181818;
+    border: solid 1px;
+    border-color: #487caf;
+}
+
+#battery.warning:not(.charging) {
+    background-color: #181818;
+    color: #ffffff;
+    border-color: #ffbe61;
+}
+
+#battery.critical:not(.charging) {
+    background-color: #181818;
+    color: #ffffff;
+    border-color: #ad2626;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#tooltip {
+    background-color: #181818;
+}
+
+#tray {
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 20px 10px 10px 5px;
+    border: solid 1px;
+    border-color: #474036;
+    transition: none;
+    color: #ffffff;
+    background: #181818;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}

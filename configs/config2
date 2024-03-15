@@ -1,0 +1,180 @@
+// -*- mode: json -*-
+
+{
+    "layer": "top",
+        "position": "top",
+
+        "modules-left": [
+        "hyprland/workspaces",
+        "custom/right-arrow-dark",
+        "custom/right-arrow-light",
+        "tray",
+        "custom/right-arrow-dark",
+        "custom/right-arrow-light",
+        "custom/right-arrow-dark2"
+        ],
+        "modules-center": [
+        "custom/left-arrow-dark2",
+        "custom/left-arrow-light",
+        "custom/left-arrow-dark",
+        "clock#1",
+        "custom/left-arrow-light",
+        "custom/left-arrow-dark",
+        "clock#2",
+        "custom/right-arrow-dark",
+        "custom/right-arrow-light",
+        "clock#3",
+        "custom/right-arrow-dark",
+        "custom/right-arrow-light",
+        "custom/right-arrow-dark2"
+        ],
+        "modules-right": [
+        "custom/left-arrow-dark2",
+        "custom/left-arrow-light",
+        "custom/left-arrow-dark",
+        "pulseaudio#input",
+        "custom/left-arrow-light",
+        "custom/left-arrow-dark",
+        "pulseaudio",
+        "custom/left-arrow-light",
+        "custom/left-arrow-dark",
+        "custom/ytube",
+        "custom/left-arrow-light",
+        "custom/left-arrow-dark",
+        "battery",
+        "custom/left-arrow-light",
+        "custom/left-arrow-dark",
+        "custom/updates"
+        ],
+
+        "custom/left-arrow-dark": {
+            "format": " ",
+            "tooltip": false
+        },
+        "custom/left-arrow-dark2": {
+            "format": " ",
+            "tooltip": false
+        },
+        "custom/left-arrow-light": {
+            "format": " ",
+            "tooltip": false
+        },
+        "custom/right-arrow-dark": {
+            "format": " ",
+            "tooltip": false
+        },
+        "custom/right-arrow-dark2": {
+            "format": " ",
+            "tooltip": false
+        },
+        "custom/right-arrow-light": {
+            "format": " ",
+            "tooltip": false
+        },
+
+        "custom/updates": {
+            "format": "  {} ",
+            "interval": 7200,                     // every two hours
+            "exec": "i=$(sudo xbps-install -SuMn | awk '{print $1}'); echo \"$i\" |wc -l; echo \"$i\" |column -t |tr '\n' '\r'",       // # of updates and tooltip details
+            "exec-if": "exit 0",                  // always run; consider advanced run conditions
+            "on-click": "alacritty -e sudo xbps-install -SMu", // update system
+            "signal": 8
+        },
+
+        "custom/ytube": {
+            "format": " 󰗃 {} ",
+            "interval": 7200,
+            "exec": "$HOME/.local/scripts/ytsubs.sh",
+            "exec-if": "exit 0"
+        },
+
+        "hyprland/workspaces": {
+            "disable-scroll": true,
+            "persistent-workspaces": {
+                "*": 0,
+            },
+            "active-only": false,
+            "format": "{name}: {icon}",
+            "format-icons": {
+                "1": " ",
+                "2": " ",
+                "3": " ",
+                "4": " ",
+                "5": " ",
+                "6": " ",
+                "7": " ",
+                "8": " ",
+                "9": " ",
+                "10": " "
+            }	},
+
+        "clock#1": {
+            "format": "{:%a}",
+            "tooltip": false
+        },
+        "clock#2": {
+            "format": "{:%I:%M %p}",
+            "tooltip": false
+        },
+        "clock#3": {
+            "format": "{:%m-%d}",
+            "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"	
+        },
+
+        "pulseaudio": {
+            "format": "{icon} {volume:2}%",
+            "format-bluetooth": "{icon}  {volume}%",
+            "format-muted": "MUTE",
+            "format-icons": {
+                "headphones": "",
+                "default": [
+                    "",
+                ""
+                ]
+            },
+            "scroll-step": 5,
+            "on-click": "pamixer -t",
+            "on-click-right": "pavucontrol"
+        },
+        "memory": {
+            "interval": 5,
+            "format": "Mem {}%"
+        },
+        "pulseaudio#input": {
+            "format-source": " {volume}%",
+            "format-source-muted": " off",
+            "format": "{format_source}",
+            "scroll-step": 1,
+            "smooth-scrolling-threshold": 1,
+            "max-volume": 100,
+            "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+            "on-click-middle": "pavucontrol",
+            "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +1%",
+            "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -1%",
+        },        
+        "battery": {
+            "states": {
+                "good": 95,
+                "warning": 30,
+                "critical": 15
+            },
+            "format": "{icon} {capacity}%",
+            "format-icons": [
+                " ",
+            " ",
+            " ",
+            " ",
+            " "
+            ]
+        },
+        "disk": {
+            "interval": 5,
+            "format": "Disk {percentage_used:2}%",
+            "path": "/"
+        },
+        "tray": {
+            "icon-size": 16,
+            "spacing": 10
+        }
+
+}
