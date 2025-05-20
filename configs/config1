@@ -5,7 +5,7 @@
     "margin": "5 20 0 20",
         // "width": 1280, // Waybar width
         // Choose the order of the modules
-        "modules-left": ["hyprland/workspaces", "custom/updates"],
+        "modules-left": ["niri/workspaces", "custom/updates"],
         "modules-center": ["clock", "custom/weather"],
         "modules-right": ["pulseaudio", "backlight", "battery", "custom/ytube", "tray"],
 
@@ -16,6 +16,8 @@
 
         "hyprland/workspaces": {
             "disable-scroll": true,
+            "all-output": false,
+            "active-only": false,
             "persistent-workspaces": {
                 "*": 0,
             },
@@ -31,9 +33,25 @@
                 "7": " ",
                 "8": " ",
                 "9": " ",
-                "10": " "
+                "10": " ",
+                "active": " ",
+                "visible": " "
             }	
-        },    
+        },
+
+        "niri/workspaces": {
+            "format": "{icon}",
+            "format-icons": {
+                // Named workspaces
+                // (you need to configure them in niri)
+                "browser": "",
+                "discord": "",
+                "chat": "<b></b>",
+                // Icons by state
+                "active": "  ",
+                "default": "  "
+            }
+        },
 
         "custom/updates": {
             "format": "   {} ",
@@ -44,101 +62,101 @@
             "signal": 8
         },
 
-        "custom/mail": {
-            "format": "{} ",
-            "exec": "$HOME/.config/waybar/scripts/checkgmail.py",
-            "interval": 120,
-            "on-click": "google-chrome-stable https://mail.google.com/mail/u/0/#inbox ; pkill -SIGRTMIN+9 waybar",
-            "signal": 9,
-            "tooltip": false,
-        },
-
-        "sway/mode": {
-            "format": "<span style=\"italic\">{}</span>"
-        },
-
-        "clock": {
-            "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-            "format": "{:%a, %d %b, %I:%M %p}"
-        },
-
-        "custom/weather": {
-            "format": "{}",
-            "tooltip": true,
-            "interval": 1800,
-            "exec": "$HOME/.config/waybar/scripts/wttr.py",
-            "return-type": "json"
-        },
-
-        "pulseaudio": {
-            // "scroll-step": 1, // %, can be a float
-            "reverse-scrolling": 1,
-            "format": "{volume}% {icon} {format_source}",
-            "format-bluetooth": "{volume}% {icon} {format_source}",
-            "format-bluetooth-muted": " {icon} {format_source}",
-            "format-muted": "婢 {format_source}",
-            "format-source": "{volume}% ",
-            "format-source-muted": "",
-            "format-icons": {
-                "headphone": "",
-                "hands-free": "",
-                "headset": "",
-                "phone": "",
-                "portable": "",
-                "car": "",
-                "default": ["奄", "奔", "墳"]
+            "custom/mail": {
+                "format": "{} ",
+                "exec": "$HOME/.config/waybar/scripts/checkgmail.py",
+                "interval": 120,
+                "on-click": "google-chrome-stable https://mail.google.com/mail/u/0/#inbox ; pkill -SIGRTMIN+9 waybar",
+                "signal": 9,
+                "tooltip": false,
             },
-            "on-click": "pavucontrol",
-            "min-length": 13,
-        },
 
-        "custom/mem": {
-            "format": "{} ",
-            "interval": 3,
-            "exec": "free -h | awk '/Mem:/{printf $3}'",
-            "tooltip": false,
-        },
-
-        "temperature": {
-            // "thermal-zone": 2,
-            // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-            "critical-threshold": 80,
-            // "format-critical": "{temperatureC}°C {icon}",
-            "format": "{temperatureC}°C {icon}",
-            "format-icons": ["", "", "", "", ""],
-            "tooltip": false,
-        },
-
-        "backlight": {
-            "device": "intel_backlight",
-            "format": "{percent}% {icon}",
-            "format-icons": ["","","","", "", "", ""],
-            "min-length": 7,
-        },
-
-        "battery": {
-            "states": {
-                "warning": 30,
-                "critical": 15
+            "sway/mode": {
+                "format": "<span style=\"italic\">{}</span>"
             },
-            "format": " {capacity}% {icon} ",
-            "format-charging": "{capacity}% ",
-            "format-plugged": "{capacity}% ",
-            "format-alt": "{time} {icon}",
-            "format-icons": ["", "", "", "", "", "", "", "", "", ""],
-            "on-update": "$HOME/.config/waybar/scripts/check_battery.sh",
-        },
 
-        "tray": {
-            "icon-size": 16,
-            "spacing": 4
-        },
+            "clock": {
+                "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+                "format": "{:%a, %d %b, %I:%M %p}"
+            },
 
-        "custom/ytube": {
-            "format": " 󰗃  {} ",
-            "interval": 15,
-            "exec": "$HOME/.local/scripts/ytsubs.sh",
-            "exec-if": "exit 0"
-        },
+            "custom/weather": {
+                "format": "{}",
+                "tooltip": true,
+                "interval": 1800,
+                "exec": "$HOME/.config/waybar/scripts/wttr.py",
+                "return-type": "json"
+            },
+
+            "pulseaudio": {
+                // "scroll-step": 1, // %, can be a float
+                "reverse-scrolling": 1,
+                "format": "{volume}% {icon} {format_source}",
+                "format-bluetooth": "{volume}% {icon} {format_source}",
+                "format-bluetooth-muted": " {icon} {format_source}",
+                "format-muted": "婢 {format_source}",
+                "format-source": "{volume}% ",
+                "format-source-muted": "",
+                "format-icons": {
+                    "headphone": "",
+                    "hands-free": "",
+                    "headset": "",
+                    "phone": "",
+                    "portable": "",
+                    "car": "",
+                    "default": ["奄", "奔", "墳"]
+                },
+                "on-click": "pavucontrol",
+                "min-length": 13,
+            },
+
+            "custom/mem": {
+                "format": "{} ",
+                "interval": 3,
+                "exec": "free -h | awk '/Mem:/{printf $3}'",
+                "tooltip": false,
+            },
+
+            "temperature": {
+                // "thermal-zone": 2,
+                // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+                "critical-threshold": 80,
+                // "format-critical": "{temperatureC}°C {icon}",
+                "format": "{temperatureC}°C {icon}",
+                "format-icons": ["", "", "", "", ""],
+                "tooltip": false,
+            },
+
+            "backlight": {
+                "device": "intel_backlight",
+                "format": "{percent}% {icon}",
+                "format-icons": ["","","","", "", "", ""],
+                "min-length": 7,
+            },
+
+            "battery": {
+                "states": {
+                    "warning": 30,
+                    "critical": 15
+                },
+                "format": " {capacity}% {icon} ",
+                "format-charging": "{capacity}% ",
+                "format-plugged": "{capacity}% ",
+                "format-alt": "{time} {icon}",
+                "format-icons": ["", "", "", "", "", "", "", "", "", ""],
+                "on-update": "$HOME/.config/waybar/scripts/check_battery.sh",
+            },
+
+            "tray": {
+                "icon-size": 16,
+                "spacing": 4
+            },
+
+            "custom/ytube": {
+                "format": " 󰗃  {} ",
+                "interval": 15,
+                "exec": "$HOME/.local/scripts/ytsubs.sh",
+                "exec-if": "exit 0"
+            },
 
 }

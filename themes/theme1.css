@@ -2,7 +2,7 @@
     border: none;
     border-radius: 0;
     font-family: Caskaydia Cove Nerd Font, monospace;
-    font-size: 12px;
+    font-size: 16px;
     min-height: 0px;
 }
 
@@ -48,7 +48,8 @@ window#waybar.hidden {
 }*/
 
 #workspaces button.active {
-    color: #487caf;
+    /*color: #487caf;*/
+    color: #417070;
 }
 
 #language {
@@ -87,7 +88,8 @@ window#waybar.hidden {
     border-radius: 20px 5px 20px 5px;
     border: solid 1px;
     border-color: #474036;
-    color: #487caf;
+    /*color: #487caf;*/
+    color: #417070;
     background: #181818;
 }
 
@@ -198,7 +200,8 @@ window#waybar.hidden {
     /*background-color: #26A65B;*/
     background-color: #181818;
     border: solid 1px;
-    border-color: #487caf;
+    /*border-color: #487caf;*/
+    border-color: #417070;
 }
 
 #battery.warning:not(.charging) {
